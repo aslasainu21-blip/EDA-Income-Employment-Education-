@@ -40,7 +40,8 @@
 *Finding: >50K earners work about 45 hrs/week vs about 39 hrs for <=50K.*
 
 ### 4. Correlation Between Numeric Variables
-![Correlation Heatmap](correlation_heatmap.png)
+<img width="855" height="528" alt="correlation_heatmap" src="https://github.com/user-attachments/assets/adfe89aa-826d-4505-b29a-0612fee96ba2" />
+
 
 *Finding: Correlations are weak. The highest is education_num vs hours_per_week (0.15). Capital gain/loss are 0 for most people.*
 
