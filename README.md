@@ -25,17 +25,20 @@
 ## 📈 Visualizations & Key Findings
 
 ### 1. Income Distribution - Imbalanced
-![Income Distribution](income_distribution.png)
+<img width="1591" height="448" alt="income_distribution" src="https://github.com/user-attachments/assets/df8ef119-1868-4b0a-a04d-7adb31654b77" />
+
 
 *Finding: 75.9% earn <=50K and 24.1% earn >50K.*
 
 ### 2. Education Shows the Clearest Link with Income
-![Education vs Income](education_income.png)
+<img width="1014" height="609" alt="education_income" src="https://github.com/user-attachments/assets/1630576e-c1d7-438e-9d1e-ec5037035517" />
+
 
 *Finding: 74% of Doctorate and 73% of Prof-school holders earn >50K, versus only 16% of HS-grads.*
 
 ### 3. Working Hours
-![Hours vs Income](hours_vs_income.png)
+<img width="686" height="470" alt="hours_vs_income" src="https://github.com/user-attachments/assets/c1fa1f5f-72b6-43c0-9d80-1a3f555745fa" />
+
 
 *Finding: >50K earners work about 45 hrs/week vs about 39 hrs for <=50K.*
 
@@ -46,7 +49,8 @@
 *Finding: Correlations are weak. The highest is education_num vs hours_per_week (0.15). Capital gain/loss are 0 for most people.*
 
 ### 5. Gender Difference
-![Hours by Sex and Income](hours_by_sex.png)
+<img width="686" height="470" alt="hours_by_sex" src="https://github.com/user-attachments/assets/db2f129e-944b-4d79-9f6b-5c83d8320992" />
+
 
 *Finding: Men work more hours than women in both income groups.*
 
