@@ -57,21 +57,10 @@
 ## 💡 Key Insights
 - Only 24% of people earn >50K, so the data is imbalanced
 - Education shows the clearest link with higher income
-- >50K earners work about 6 more hours per week
+-  >50K earners work about 6 more hours per week
 - Median age is about 44 for >50K vs about 34 for <=50K
 
-> Note: This is an exploratory analysis. It shows relationships (correlation), not cause and effect.
-
-## ▶️ How to Run
-1. Open the notebook in Google Colab using the badge above.
-2. Upload `adult.data` to the Colab session.
-3. Run all cells. To run locally: `pip install pandas matplotlib seaborn plotly`
-
-## 📁 Repository Contents
-- Jupyter / Colab notebook with the full analysis
-- Project report
-- `adult.data` - UCI Adult dataset
-- 5 chart images (`.png`) used in this README
+ Note: This is an exploratory analysis. It shows relationships (correlation), not cause and effect.
 
 ## 📚 Source
 UCI Machine Learning Repository - Adult (Census Income) dataset.
