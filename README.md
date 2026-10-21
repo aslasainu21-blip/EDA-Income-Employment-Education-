@@ -1,67 +1,192 @@
-# EDA of Income, Employment and Education
+# Exploratory Data Analysis of Income, Employment and Education
 
-> Exploratory Data Analysis on the UCI Adult Census Income dataset (32,561 records) to understand what is linked to earning above $50K.
+**Dataset:** UCI Adult Income (1994 U.S. Census)  
+**Author:** Suvaibathul Aslamiya Up  
+**Course:** AI-Driven Data Analytics  
+**Tools:** Python | Pandas | NumPy | Matplotlib | Seaborn | Plotly | Google Colab
 
+---
+
+## 📌 Abstract
+This project presents an Exploratory Data Analysis (EDA) of the UCI Adult Income dataset (1994 U.S. Census). The aim is to understand how educational, employment-related and demographic factors are associated with whether a person earns more than 50K per year.
+
+**Key Stats:** 75.91% earn <=50K and 24.09% earn >50K. Higher education levels (Bachelors, Masters, Doctorate, Prof-school) are more strongly represented in the >50K group.
+
+## 🎯 Project Objectives
+- To analyze the relationship between education and income levels
+- To examine how employment-related factors (workclass, occupation, working hours) are associated with income
+- To study the influence of demographic factors (age, marital status, sex, race) on income
+- To clean and preprocess data by handling missing values, removing duplicates, and checking outliers
+- To summarize key findings using statistical analysis and visualizations
+
+## 📂 Dataset Description
+
+| Attribute | Value |
+| :--- | :--- |
+| Source | UCI Machine Learning Repository |
+| Records | 32,561 individuals (32,537 after removing duplicates) |
+| Features | 14 input features |
+| Total columns | 15 (including target) |
+| Target variable | Income (<=50K / >50K) |
+| Data types | 6 numerical and 9 categorical columns |
+
+**Column Groups:**
+- **Demographic:** age, race, sex, native_country
+- **Employment:** workclass, occupation, hours_per_week
+- **Education:** education, education_num
+- **Personal:** marital_status, relationship
+- **Financial:** fnlwgt, capital_gain, capital_loss
+- **Target:** income
+
+## 🛠️ Tools and Technologies Used
+- **Python (Google Colab):** programming and notebook environment
+- **Pandas:** loading, cleaning, analyzing data
+- **NumPy:** numerical operations
+- **Matplotlib:** creating charts and graphs
+- **Plotly:** interactive donut chart of income distribution
+- **Seaborn:** count plots, box plots, heatmaps and pair plots
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white) ![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white) ![Matplotlib](https://img.shields.io/badge/Matplotlib-11557C?style=for-the-badge) ![Seaborn](https://img.shields.io/badge/Seaborn-4C72B0?style=for-the-badge) ![Plotly](https://img.shields.io/badge/Plotly-3F4F75?style=for-the-badge&logo=plotly&logoColor=white)
 
 [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1aLQl1oHVOxs62j26eYoKCuksT6TpdgnN?usp=sharing)
 
-## 📊 Project Overview
-**Purpose:** Understand how education, working hours, age and other factors relate to whether a person earns above or below $50K a year.
+## 🧹 Data Cleaning and Preprocessing
+- Missing "?" values were replaced with "Unknown"
+- 24 duplicate records were removed
+- Invalid and inconsistent values were checked and corrected
+- Final dataset: 32,537 records
 
-**Dataset:** UCI Adult Income - 32,561 rows, 15 columns | Target: `income` (<=50K / >50K)
+## 📊 Outlier Detection
+Outliers detected using IQR method (Q1 - 1.5*IQR and Q3 + 1.5*IQR)
+- Age: 142 potential outliers
+- hours_per_week: 9,002
+- capital_gain: 2,712
+- capital_loss: 1,519
 
-## 🔧 Tools & Technologies
-- Python, Pandas
-- Matplotlib, Seaborn, Plotly
-- Google Colab
+> These were retained because extreme values can be genuine observations (e.g., very high capital gains or long working hours).
 
-## 🧹 Data Cleaning
-- Missing values: Workclass (1,836), Occupation (1,843), Native-Country (583) marked as "?" -> filled with "Unknown"
-- Duplicates: 24 rows removed (32,561 -> 32,537)
-- Fixed country names: Columbia, Hong, Trinadad&Tobago, Holand-Netherlands
-- Outliers checked with box plots
+## 🔍 Exploratory Data Analysis (EDA)
 
-## 📈 Visualizations & Key Findings
+### Univariate Analysis
+**Numerical:** age is slightly right-skewed (20-50 years), fnlwgt is strongly right-skewed, education_num peaks at 9, 10 and 13-14, capital_gain/capital_loss are zero for >90% records, hours_per_week peaks at 40 hours.
 
-### 1. Income Distribution - Imbalanced
-<img width="1591" height="448" alt="income_distribution" src="https://github.com/user-attachments/assets/df8ef119-1868-4b0a-a04d-7adb31654b77" />
+**Categorical:** Most work in Private sector, are Married-civ-spouse or Never-married, are White and Male, most belong to <=50K group. HS-grad and Bachelors are most frequent.
 
+### Bivariate Analysis
+- **Numerical vs Numerical:** age and hours_per_week show no strong linear relationship
+- **Categorical vs Numerical:** >50K group has higher median age and higher average weekly hours
+- **Categorical vs Categorical:** Education and income are clearly related
 
-*Finding: 75.9% earn <=50K and 24.1% earn >50K.*
+| Education | <=50K | >50K |
+| :--- | :--- | :--- |
+| Bachelors | 3,132 | 2,221 |
+| Masters | 763 | 959 |
+| Doctorate | 107 | 306 |
+| Prof-school | 153 | 423 |
+| HS-grad | 8,820 | 1,674 |
+| Some-college | 5,896 | 1,386 |
 
-### 2. Education Shows the Clearest Link with Income
-<img width="1014" height="609" alt="education_income" src="https://github.com/user-attachments/assets/1630576e-c1d7-438e-9d1e-ec5037035517" />
+### Statistical Analysis
+| Variable | Mean | Median | Mode | Std. Dev. |
+| :--- | :--- | :--- | :--- | :--- |
+| age | 38.59 | 37 | 36 | 13.64 |
+| fnlwgt | 189,780.85 | 178,356 | 123,011 | 105,556.47 |
+| education_num | 10.08 | 10 | 9 | 2.57 |
+| capital_gain | 1,078.44 | 0 | 0 | 7,387.96 |
+| capital_loss | 87.37 | 0 | 0 | 403.10 |
+| hours_per_week | 40.44 | 40 | 40 | 12.35 |
 
+Strongest correlation: education_num and hours_per_week (0.148)
 
-*Finding: 74% of Doctorate and 73% of Prof-school holders earn >50K, versus only 16% of HS-grads.*
+## 📈 Data Visualization and Interpretation
 
-### 3. Working Hours
-<img width="686" height="470" alt="hours_vs_income" src="https://github.com/user-attachments/assets/c1fa1f5f-72b6-43c0-9d80-1a3f555745fa" />
+### Figure 1: Income category distribution (bar plot)
+<img width="713" height="470" alt="download (2)" src="https://github.com/user-attachments/assets/599c6ac0-6069-4a58-a894-ebb04a6550b7" />
 
+**Interpretation:** The data is imbalanced, with far more individuals in the <=50K group.
 
-*Finding: >50K earners work about 45 hrs/week vs about 39 hrs for <=50K.*
+### Figure 2: Income category distribution (donut chart, Plotly)
+<img width="439" height="172" alt="Screenshot 2026-10-20 153515" src="https://github.com/user-attachments/assets/183235d0-5339-443a-b244-65c2fc4414ad" />
 
-### 4. Correlation Between Numeric Variables
-<img width="855" height="528" alt="correlation_heatmap" src="https://github.com/user-attachments/assets/adfe89aa-826d-4505-b29a-0612fee96ba2" />
+**Interpretation:** 75.91% earn <=50K and 24.09% earn >50K.
 
+### Figure 3: Histograms of numerical variables
+<img width="1186" height="1190" alt="download (11)" src="https://github.com/user-attachments/assets/0b14b088-58e9-4083-bb4b-dbda6494f229" />
 
-*Finding: Correlations are weak. The highest is education_num vs hours_per_week (0.15). Capital gain/loss are 0 for most people.*
+**Interpretation:** Most variables are skewed. capital_gain and capital_loss are concentrated at zero; hours_per_week peaks at 40.
 
-### 5. Gender Difference
-<img width="686" height="470" alt="hours_by_sex" src="https://github.com/user-attachments/assets/db2f129e-944b-4d79-9f6b-5c83d8320992" />
+### Figure 4: Box plots of numerical variables (plotted separately)
+<img width="1189" height="1190" alt="download (10)" src="https://github.com/user-attachments/assets/f23be1ff-4377-4c88-b25a-8cb280bd042d" />
 
+**Interpretation:** capital_gain, capital_loss, fnlwgt and hours_per_week show many extreme values; age and education_num are more balanced. Each variable is plotted separately because the scales differ.
 
-*Finding: Men work more hours than women in both income groups.*
+### Figure 5: Count plots of categorical variables
+<img width="1789" height="1390" alt="download (1)" src="https://github.com/user-attachments/assets/0fff29df-ef21-482e-9c2f-3088377b1b69" />
 
-## 💡 Key Insights
-- Only 24% of people earn >50K, so the data is imbalanced
-- Education shows the clearest link with higher income
--  >50K earners work about 6 more hours per week
-- Median age is about 44 for >50K vs about 34 for <=50K
+**Interpretation:** Private workclass, Married-civ-spouse and Never-married status, Husband and Not-in-family relationships, White race and Male sex are the largest groups.
 
- Note: This is an exploratory analysis. It shows relationships (correlation), not cause and effect.
+### Figure 6: Age vs hours per week (scatter plot)
+<img width="695" height="470" alt="download (3)" src="https://github.com/user-attachments/assets/88f8119b-d51e-436e-abc1-55b6afca1168" />
 
-## 📚 Source
-UCI Machine Learning Repository - Adult (Census Income) dataset.
+**Interpretation:** Points are widely scattered, so there is no strong linear relationship.
 
+### Figure 7: Age distribution by income (box plot)
+<img width="686" height="470" alt="download (4)" src="https://github.com/user-attachments/assets/7340564a-98df-4670-b302-30f1273db30e" />
+
+**Interpretation:** The >50K group has a higher median age than the <=50K group.
+
+### Figure 8: Average working hours by income (bar plot)
+<img width="686" height="470" alt="download (5)" src="https://github.com/user-attachments/assets/af0cd613-1a56-4cd4-bf1e-817a0108fc49" />
+
+**Interpretation:** The >50K group works slightly more hours per week on average.
+
+### Figure 9: Average hours by sex and income (grouped bar plot)
+<img width="686" height="470" alt="download (8)" src="https://github.com/user-attachments/assets/7a3f1c95-26f2-4c92-869e-711f413ec01e" />
+
+**Interpretation:** The >50K group works longer hours for both sexes, with a bigger gap among males.
+
+### Figure 10: Education level by income (count plot)
+<img width="1014" height="609" alt="download (6)" src="https://github.com/user-attachments/assets/c1a643e4-3b12-44ab-850b-00596626b31d" />
+
+**Interpretation:** Bachelors, Masters, Doctorate and Prof-school have a much larger share in the >50K group.
+
+### Figure 11: Correlation heatmap of numerical variables
+<img width="855" height="528" alt="download (7)" src="https://github.com/user-attachments/assets/95815ce5-12bd-4183-864a-aa5815f301fd" />
+
+**Interpretation:** All correlations are weak; the highest is 0.15 between education_num and hours_per_week.
+
+### Figure 12: Pair plot of numerical variables
+<img width="1476" height="1528" alt="download (9)" src="https://github.com/user-attachments/assets/2001fa9e-5f58-44c7-88a4-c8936f41aace" />
+
+**Interpretation:** No strong linear relationships are visible; capital_gain and capital_loss cluster around zero.
+
+## 📈 Key Findings and Insights
+- **Income distribution:** 75.91% earn <=50K and 24.09% earn >50K (imbalanced data)
+- **Education:** Higher education is more represented in >50K group (Strongest effect)
+- **Age:** >50K group has higher median age (Moderate effect)
+- **Working hours:** >50K group works more hours per week on average (Moderate effect)
+- **Sex and income:** >50K group works longer hours for both sexes, with bigger gap among males
+- **Correlation:** All numerical correlations are weak (highest 0.15)
+
+## ✅ Conclusion
+Education level, age and working hours show clear patterns related to income category, with higher education being the most visible. However, these are associations only; findings do not establish causation.
+
+## ⚠️ Limitations and Future Scope
+
+**Limitations:**
+- Data from 1994 U.S. Census, may not reflect current patterns
+- Income has only two categories and data is imbalanced (76% vs 24%)
+- capital_gain and capital_loss are mostly zero and highly skewed
+- Outliers were retained, which can affect averages
+- Analysis is exploratory, shows association not causation
+
+**Future Scope:**
+- Apply log transformation to skewed variables
+- Build classification models (logistic regression, decision trees) with class imbalance handling
+- Use statistical tests like chi-square test
+- Use more recent data and add extra features
+
+## 📚 References
+- UCI ML Repository: Adult Dataset - https://archive.ics.uci.edu/dataset/2/adult
+- Pandas, NumPy, Matplotlib, Seaborn documentation
+
+---
