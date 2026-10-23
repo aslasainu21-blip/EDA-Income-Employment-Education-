@@ -46,9 +46,7 @@ This project presents an Exploratory Data Analysis (EDA) of the UCI Adult Income
 - **Plotly:** interactive donut chart of income distribution
 - **Seaborn:** count plots, box plots, heatmaps and pair plots
 
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white) ![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white) ![Matplotlib](https://img.shields.io/badge/Matplotlib-11557C?style=for-the-badge) ![Seaborn](https://img.shields.io/badge/Seaborn-4C72B0?style=for-the-badge) ![Plotly](https://img.shields.io/badge/Plotly-3F4F75?style=for-the-badge&logo=plotly&logoColor=white)
 
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1aLQl1oHVOxs62j26eYoKCuksT6TpdgnN?usp=sharing)
 
 ## 🧹 Data Cleaning and Preprocessing
 - Missing "?" values were replaced with "Unknown"
